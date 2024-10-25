@@ -1,6 +1,6 @@
 {
-  "name": "ui-kit-z-pnpm-vite",
-  "private": true,
+  "name": "@daniilminin-a/ui-kit-z-pnpm-vite",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "main": "dist/index.js",
