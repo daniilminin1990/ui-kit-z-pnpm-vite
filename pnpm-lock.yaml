@@ -45,7 +45,7 @@ importers:
         specifier: ^2.12.7
         version: 2.13.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sass:
-        specifier: ^1.80.3
+        specifier: ^1.80.4
         version: 1.80.4
     devDependencies:
       '@chromatic-com/storybook':
