@@ -1,30 +1,27 @@
-// vite.config.js
 import { resolve } from 'path'
-import { defineConfig } from 'vite'
-import packageJson from './package.json'
 
+import { defineConfig } from 'vite'
+
+import { dependencies, devDependencies } from './package.json'
+// https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'src/index.ts'), // Точка входа приложения
-      name: 'ui-kit-snapmoment', // название библы
+      entry: resolve(__dirname, 'src/index.ts'),
       // the proper extensions will be added
-      fileName: 'index', // название выходного файла,
+      fileName: 'index',
       formats: ['es'],
+      name: 'live-bundlers',
     },
     rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
-      external: ['react-jsx-runtime' , ...Object.keys(packageJson.dependencies), ...Object.keys(packageJson.devDependencies) ],
-      output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
-        // globals: {
-        //   vue: 'Vue',
-        // },
-      },
+      external: [
+        'react/jsx-runtime',
+        ...Object.keys(dependencies),
+        ...Object.keys(devDependencies),
+      ],
     },
-    target: 'esnext'
+    sourcemap: true,
+    target: 'esnext',
   },
 })
